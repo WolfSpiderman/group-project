@@ -51,20 +51,20 @@ h1 span {
 
 .middle {
     position: absolute;
-    top: 12%;
-    right: -7%;
-    letter-spacing: 6px;
-    font-size: 37px;
+    top: 7%;
+    right: -2%;
+    letter-spacing: 3.75px;
+    font-size: 40px;
     color: #FFF765;
     z-index: 2;
 }
 
 .top {
     position: absolute;
-    top: 9%;
-    right: 1%;
-    letter-spacing: 8px;
-    font-size: 31px;
+    top: 5%;
+    right: 0%;
+    letter-spacing: 5.75px;
+    font-size: 35px;
     color: #08BAE3;
     z-index: 3;
 }
