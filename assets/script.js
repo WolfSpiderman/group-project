@@ -21,10 +21,11 @@ var questionList = [
     }
 ];
 
-//request charcters
+//game functionality
+function startQuiz(){
+    
+}
+
+//request for Rick and morty API (joshua has done work on this)
 var requestUrl = 'https://rickandmortyapi.com/api';
 
-GET (requestUrl)
-    .then(function(response) {
-        return response.json();
-    });
