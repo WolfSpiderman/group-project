@@ -1,11 +1,9 @@
+var requestCharAll = "https://rickandmortyapi.com/api/character/[703,388,321,7,26,47,81,162,192,279,282,306,196,726,562,543,507,717,548,696]";
 var startBtn = document.querySelector("#startBtn");
-
 //display questions here
 var questionH2 = document.querySelector(".question");
-
 //display image cards here
 var charCards = document.querySelector("#charCard");
-
 //display answer options/button
 var answerBtn1 = document.querySelector("#btn1");
 var answerBtn2 = document.querySelector("#btn2");
@@ -26,6 +24,10 @@ function startQuiz(){
     
 }
 
-//request for Rick and morty API (joshua has done work on this)
-var requestUrl = 'https://rickandmortyapi.com/api';
-
+fetch(requestCharAll)
+.then(function (response) {
+    return response.json();
+})
+.then(function (data) {
+    console.log(data);
+});
