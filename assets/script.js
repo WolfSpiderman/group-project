@@ -17,10 +17,65 @@ var questionList = [
         choices: ["a. Earth", "b. ", "c. "],
         answer: "a"
     }
+
+    {
+        question: "What planet is this character from?",
+        choices: ["a. Earth", "b. ", "c. "],
+        answer: "a"
+    }
+
+    {
+        question: "What planet is this character from?",
+        choices: ["a. Earth", "b. ", "c. "],
+        answer: "a"
+    }
+
+    {
+        question: "What planet is this character from?",
+        choices: ["a. Earth", "b. ", "c. "],
+        answer: "a"
+    }
+
+    {
+        question: "What planet is this character from?",
+        choices: ["a. Earth", "b. ", "c. "],
+        answer: "a"
+    }
+
+    {
+        question: "What planet is this character from?",
+        choices: ["a. Earth", "b. ", "c. "],
+        answer: "a"
+    }
+
+    {
+        question: "What planet is this character from?",
+        choices: ["a. Earth", "b. ", "c. "],
+        answer: "a"
+    }
+
 ];
 
 //game functionality
 function startQuiz(){
+    hideCards();
+    questionCard.removeAttribute("hidden");
+
+  
+    currentQuestion = 0;
+    points = 0;
+    displayQuestion();
+
+  
+    time = 60;
+    //set function for countdown in seperate function,called here
+    timerInterval = setInterval(countdown, 1000);
+
+  
+    displayTime();
+}
+
+function hideCards(){
     
 }
 
