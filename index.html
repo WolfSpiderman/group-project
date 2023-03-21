@@ -17,14 +17,23 @@
         <h1>T<span>RICK<span class="middle">RICK<span class="top">RICK</span></span></span>VIAL <span>MORT<span class="middle">MORT<span class="top">MORT</span></span></span>SUIT</h1>
     </header>
     <main>
-        <div class = "hidden" id = "question-card">
-        <button id="startBtn">Start</button>
+
+        <div id = "home-page" class = "card">
+            <img id = "background">
+        </div>
+        <div hidden id = "question-card" class = "card">
+            <button id="startBtn">Start</button>
         <h2 class="question">Press 'Start' to beg-uurrp-in the game!</h2>
-        <img id="charCard">
-        <button id="btn1"></button>
-        <button id="btn2"></button>
-        <button id="btn3"></button>
-        <button id="btn4"></button>
+            <img id="charCard">
+
+            <button id="btn1"></button>
+            <button id="btn2"></button>
+            <button id="btn3"></button>
+            <button id="btn4"></button>
+        </div>
+        <div hidden id = "score-card" class = "card">
+            <h2>You survived!</h2>
+            <p>Your final score is : <span id = "score"></span>.</p>
         </div>
     </main>
     <script src="./assets/script.js"></script>
