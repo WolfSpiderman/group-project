@@ -184,6 +184,10 @@ var score = document.querySelector("#score");
 var points;
 document.querySelector("#startBtn").addEventListener("click", startQuiz);
 
+function init(){
+  startCard.removeAttribute("hidden");
+}
+
 function startQuiz(){
     hideCards();
     gameCard.removeAttribute("hidden");
