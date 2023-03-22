@@ -16,10 +16,15 @@ fetch(requestCharAll)
 })
 .then(function (data) {
     console.log(data);
+    for (i = 0; i < data.length; i++) {
+        var charInfo = [data[i].image, data[i].name, data[i].status, data[i].species, data[i].type, data[i].origin.name, data[i].location.name];
+        console.log(charInfo);
+        charCards.setAttribute("src", charInfo[0]);
+    }
 });
 //list of questions to use in questionH2
 // 1. Abradolf Lincler 2. Arthricia 3. Birdperson 4. Crocubot 5. Ice-T 6. King Flippy Nips 7. Krombopulos Micheal 8. Mr Poopybutthole
-// 9. Regular Legs 10. Revolio Clockberg Jr. 11. Scray Terry 12. Shrimply Pibbles 13. Zeep Xanflorp 14. Fascist Teddy Bear Rick 
+// 9. Regular Legs 10. Revolio Clockberg Jr. 11. Scary Terry 12. Shrimply Pibbles 13. Zeep Xanflorp 14. Fascist Teddy Bear Rick 
 // 15. Vermigurber 16. Balthromaw 17. Glockenspiel Morty 18. Mr. Always-Wants-To-Be-Hunted 19. Planetina 20. Sticky
 var questionList = [
     {
