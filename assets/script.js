@@ -19,10 +19,10 @@ fetch(requestCharAll)
     return response.json();
 })
 .then(function (data) {
-    console.log(data);
+   // console.log(data);
     for (i = 0; i < data.length; i++) {
         var charInfo = [data[i].image, data[i].name, data[i].status, data[i].type, data[i].species, data[i].origin.name, data[i].location.name];
-        console.log(charInfo);
+        //console.log(charInfo);
         charCards.setAttribute("src", charInfo[0]);
     }
 });
@@ -171,14 +171,13 @@ function hideCards() {
     //var results = document.querySelector("#results");
     //var resultText = document.querySelector("#result-text");
   
-    //to hide result div
-    //function hideResultText() {
-      //results.style.display = "none";
-    //}
+    // to hide result div
+    //  use for insult api
+    function hideResultText() {
+      results.style.display = "none";
+    }
+
   
-  
-var timerInterval;
-var time;
 var currentQuestion;
 var score = document.querySelector("#score");
 var points;
@@ -192,33 +191,13 @@ function startQuiz(){
     hideCards();
     gameCard.removeAttribute("hidden");
 
-  
+    console.log(questionList);
     currentQuestion = 0;
     points = 0;
     displayQuestion();
-
-    //5 min to finish game (?)
-    time = 300;
-    //set function for countdown in seperate function,called here
-    timerInterval = setInterval(countdown, 1000);
-
-  
-    displayTime();
+    
 }
 
-function countdown() {
-    time--;
-    displayTime();
-    if (time < 1) {
-      endQuiz();
-    }
-}
-  
-  //display time on page if you want for META MVP
-//var timeDisplay = document.querySelector("#time");
-//function displayTime() {
-  //  timeDisplay.textContent = time;
-//}
   
   //display the question and answer options for the current question
 function displayQuestion() {
@@ -229,10 +208,11 @@ function displayQuestion() {
     let questionH2 = document.querySelector(".question");
     questionH2.textContent = question.question;
   
-    for (let i = 0; i < options.length; i++) {
-      let option = options[i];
+    for (let i = 1; i <= options.length; i++) {
+      let option = options[(i-1)];
       let optionButton = document.querySelector("#btn" + i);
-      optionButton.value = option;
+      optionButton.textContent = option;
+      console.log(optionButton, option, i);
     }
 }
   
@@ -252,19 +232,11 @@ function checkAnswer(eventObject) {
 
     if (optionRight(optionButton)) {
       //resultText.textContent = "Correct!";
-      setTimeout(hideResultText, 1000);
+      
       points++;
     } else {
       //resultText.textContent = "Incorrect!";
-      setTimeout(hideResultText, 1000);
-      if (time >= 10) {
-        time = time - 10;
-        displayTime();
-      } else {
-        time = 0;
-       // displayTime();
-        endQuiz();
-      }
+
     }
   
     
@@ -280,7 +252,6 @@ function checkAnswer(eventObject) {
 
 
 function endQuiz() {
-    clearInterval(timerInterval);
     hideCards();
     scoreCard.removeAttribute("hidden");
     score.textContent = score;
