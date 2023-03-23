@@ -20,7 +20,9 @@
 
     
 ## cited-sources
-1. https://rickandmortyapi.com/documentation/#get-a-single-character
+1. https://rickandmortyapi.com
+2. https://insult.mattbas.org/api/
+3. https://codepen.io/nicktayloruk/pen/MWaxMEN
 
 ## Upcoming Developments
 
