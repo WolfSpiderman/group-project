@@ -1,4 +1,4 @@
-var requestCharAll = "https://rickandmortyapi.com/api/character/[703,388,321,7,26,47,81,162,192,279,282,306,196,726,562,543,507,717,548,696]";
+var requestCharAll = "https://rickandmortyapi.com/api/character/[703,388,321,7,26,47,81,162,192,279,282,306,196,726,562,543,507,717,244,696]";
 //start button
 var startBtn = document.querySelector("#startBtn");
 //hidden game card 
@@ -14,18 +14,15 @@ var answerBtn2 = document.querySelector("#btn2");
 var answerBtn3 = document.querySelector("#btn3");
 var answerBtn4 = document.querySelector("#btn4");
 
-fetch(requestCharAll)
-.then(function (response) {
-    return response.json();
-})
-.then(function (data) {
-   // console.log(data);
-    for (i = 0; i < data.length; i++) {
-        var charInfo = [data[i].image, data[i].name, data[i].status, data[i].type, data[i].species, data[i].origin.name, data[i].location.name];
-        //console.log(charInfo);
-        charCards.setAttribute("src", charInfo[0]);
-    }
-});
+var cardImg = document.querySelector("#cardImg");
+var cardName = document.querySelector("#cardName");
+var cardStatus = document.querySelector("#cardStatus");
+var cardType = document.querySelector("#cardType");
+var cardSpecies = document.querySelector("#cardSpecies");
+var cardOrigin = document.querySelector("#cardOrigin");
+var cardLast = document.querySelector("#cardLast");
+
+
 //list of questions to use in questionH2
 
     //joshua working on these and api calls
@@ -36,7 +33,7 @@ fetch(requestCharAll)
 
 var questionList = [
     {
-        question: "Abradolf Lincler died getting what for Rick?",
+        question: "Abradolf Lincler sacrificed himself getting what for Rick?",
         choices: ["a. The Emancipation Proclamation", "b. The Ark of The Convenent", "c. Kalaxian Crystals", "d. Portal Tree Seeds"],
         answer: "c. Kalaxian Crystals" 
     },
@@ -51,7 +48,7 @@ var questionList = [
         answer: "b. Birding Man"
     },
     {
-        question: "Who does Rick describe as 'half cold, unfeeling reptile, half also cold, euqally unfeeling machine'?",
+        question: "Who does Rick describe as 'half cold, unfeeling reptile, half also cold, equally unfeeling machine'?",
         choices: ["a. Gatorbot", "b. Robosnake", "c. Crocubot", "d. Mechamamba"],
         answer: "c. Crocubot" // hide name and image
     },
@@ -178,18 +175,20 @@ function hideCards() {
     }
 
   
-var currentQuestion;
+var currentQuestion = 0;
 var score = document.querySelector("#score");
 var points;
 document.querySelector("#startBtn").addEventListener("click", startQuiz);
 
 function init(){
+    hideCards();
   startCard.removeAttribute("hidden");
 }
 
 function startQuiz(){
     hideCards();
     gameCard.removeAttribute("hidden");
+    gameCard.setAttribute("display", "flex");
 
     console.log(questionList);
     currentQuestion = 0;
@@ -208,11 +207,33 @@ function displayQuestion() {
     let questionH2 = document.querySelector(".question");
     questionH2.textContent = question.question;
   
+    fetch(requestCharAll)
+    .then(function (response) {
+        return response.json();
+    })
+    .then(function (data) {
+        console.log(data);
+        var charInfo = [data[currentQuestion].image, data[currentQuestion].name, data[currentQuestion].status, data[currentQuestion].type, data[currentQuestion].species, data[currentQuestion].origin.name, data[currentQuestion].location.name];
+        console.log(charInfo);
+        cardImg.setAttribute("src", charInfo[0]);
+        if (currentQuestion[3]) {cardImg.setAttribute("hidden", true)};
+        cardName.textContent = charInfo[1];
+        if (currentQuestion[3] || currentQuestion[9]) {cardName.setAttribute("hidden", true)};
+        cardStatus.textContent = charInfo[2];
+        cardType.textContent = charInfo[3];
+        if (currentQuestion[6] || currentQuestion[12] || currentQuestion[13]|| currentQuestion[16] || currentQuestion[19]) {cardType.setAttribute("hidden", true)};
+        cardSpecies.textContent = charInfo[4];
+        if (currentQuestion[6] || currentQuestion[13] || currentQuestion[16]) {cardSpecies.setAttribute("hidden", true)};
+        cardOrigin.textContent = charInfo[5];
+        if (currentQuestion[5] || currentQuestion[12] || currentQuestion[13] || currentQuestion[16]) {cardOrigin.setAttribute("hidden", true)};
+        cardLast.textContent = charInfo[6];
+        if (currentQuestion[5] || currentQuestion[12] || currentQuestion[13] || currentQuestion[16] || currentQuestion[19]) {cardLast.setAttribute("hidden", true)};
+});
+
     for (let i = 1; i <= options.length; i++) {
       let option = options[(i-1)];
       let optionButton = document.querySelector("#btn" + i);
       optionButton.textContent = option;
-      console.log(optionButton, option, i);
     }
 }
   
@@ -230,6 +251,10 @@ function checkAnswer(eventObject) {
     //results.style.display = "block";
     if (!optionButton.matches(".answerBtn")) return; 
 
+    [].forEach.call(charCards.querySelectorAll("hidden"),function(e){
+        e.removeAttribute("hidden");
+      });
+
     if (optionRight(optionButton)) {
       //resultText.textContent = "Correct!";
       
@@ -238,11 +263,12 @@ function checkAnswer(eventObject) {
       //resultText.textContent = "Incorrect!";
 
     }
+
   
     
     currentQuestion++;
-    
-  
+    console.log(points + "/" + currentQuestion);
+    finalScore = points + "/" + currentQuestion;
     if (currentQuestion < questionList.length) {
       displayQuestion();
     } else {
@@ -254,7 +280,7 @@ function checkAnswer(eventObject) {
 function endQuiz() {
     hideCards();
     scoreCard.removeAttribute("hidden");
-    score.textContent = score;
+    score.textContent = finalScore;
 }
 
-
+init();
