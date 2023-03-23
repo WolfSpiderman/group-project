@@ -73,6 +73,7 @@ h1 span {
 
 span {
     font-family: 'Creepster', cursive;
+<<<<<<< HEAD
 }
 
 .flex-container {
@@ -86,3 +87,6 @@ span {
     background-position-x: center;
     background-repeat: no-repeat;
   }
+=======
+}
+>>>>>>> eadb32c (adjusted css)
