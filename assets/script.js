@@ -38,7 +38,7 @@ var questionList = [
     {
         question: "Abradolf Lincler died getting what for Rick?",
         choices: ["a. The Emancipation Proclamation", "b. The Ark of The Convenent", "c. Kalaxian Crystals", "d. Portal Tree Seeds"],
-        answer: "c. Kalaxian Crystals"
+        answer: "c. Kalaxian Crystals" 
     },
     {
         question: "What annual event was going on when Rick and Morty met Arthricia?",
@@ -53,7 +53,7 @@ var questionList = [
     {
         question: "Who does Rick describe as 'half cold, unfeeling reptile, half also cold, euqally unfeeling machine'?",
         choices: ["a. Gatorbot", "b. Robosnake", "c. Crocubot", "d. Mechamamba"],
-        answer: "c. Crocubot"
+        answer: "c. Crocubot" // hide name and image
     },
     {
         question: "Where do we last see Ice-T?",
@@ -63,12 +63,12 @@ var questionList = [
     {
         question: "King FLippy Nips is the king of which planet?",
         choices: ["a. Pluto", "b. Forbodulon Prime", "c. Venzenulon-7", "d. Saturn"],
-        answer: "a. Pluto"
+        answer: "a. Pluto" //hide both locations
     },
     {
         question: "What alien race is Krombopulos Micheal?",
         choices: ["a. Gazorpazorpians", "b. Gromflomite", "c. Traflorkian", "d. Krootabulan"],
-        answer: "b. Gromflomite"
+        answer: "b. Gromflomite" //hide type 
     },
     {
         question: "Why did beth shoot Mr. Poopybutthole?",
@@ -83,7 +83,7 @@ var questionList = [
     {
         question: "What is Gear-Head's real name?",
         choices: ["a. Zinc Zuckbot", "b. Bill Williamson", "c. Locomotive 'Loki' Jenkins", "d. Revolio Clockberg Jr"],
-        answer: "d. Revolio Clockberg Jr"
+        answer: "d. Revolio Clockberg Jr" //hide name
     },
     {
         question: "What turned out to be Scary Terry's weakness",
@@ -98,12 +98,12 @@ var questionList = [
     {
         question: "Which layer did was Zeep Xanflorp from",
         choices: ["a. Microverse", "b. Miniverse", "c. Tinyverse", "d. Teenyverse"],
-        answer: "a. Microverse"
+        answer: "a. Microverse" // hide type and both locations
     },
     {
         question: "What type of Rick is this?",
         choices: ["a. Clone", "b. Alternate Dimension Version", "c. Decoy", "d. Robot"],
-        answer: "b. Alternate Dimension Version"
+        answer: "b. Alternate Dimension Version" // hide type, species, and both locations
     },
     {
         question: "How many kids does Vermigurber claim to have?",
@@ -118,7 +118,7 @@ var questionList = [
     {
         question: "What type of Morty is this?",
         choices: ["a. Clone", "b. Alternate Dimension version", "c. Decoy", "d. Robot"],
-        answer: "c. Decoy"
+        answer: "c. Decoy" // hide type, species, and locations
     },
     {
         question: "Why does Mr. Always-Wants-To-Be-Hunted want to be hunted?",
@@ -133,7 +133,7 @@ var questionList = [
     {
         question: "Where did sticky come from",
         choices: ["a. Morty's testicles", "b. Space dicks", "c. A Deshrinking experiment gone wrong", "d. Zues"],
-        answer: "a. Morty's testicles"
+        answer: "a. Morty's testicles" // hide type and origin
     },
 
 ];

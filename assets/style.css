@@ -86,3 +86,13 @@ span {
     background-position-x: center;
     background-repeat: no-repeat;
   }
+
+  #btn1, #btn2, #btn3, #btn4 {
+    height: 40px;
+    padding-top: 20px;
+    width: 80vw;
+    background-color: #1A9042;
+    color: whitesmoke;
+    border: 1px solid #E5E051;
+    border-radius: 20%;
+  }
