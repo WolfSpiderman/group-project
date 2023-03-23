@@ -223,7 +223,7 @@ function countdown() {
   //display the question and answer options for the current question
 function displayQuestion() {
     let question = questionList[currentQuestion];
-    let options = question.options;
+    let options = question.choices;
   
    //display questions here
     let questionH2 = document.querySelector(".question");
@@ -232,12 +232,12 @@ function displayQuestion() {
     for (let i = 0; i < options.length; i++) {
       let option = options[i];
       let optionButton = document.querySelector("#btn" + i);
-      optionButton.textContent = option;
+      optionButton.value = option;
     }
 }
   
   
-document.querySelector("#btn").addEventListener("click", checkAnswer);
+document.addEventListener("click", checkAnswer);
   
   //Compare text content of button pressed with that of the current question 
 function optionRight(optionButton) {
@@ -247,7 +247,9 @@ function optionRight(optionButton) {
   //if answer wrong subtract 10seconds, show wrong or right in results div
 function checkAnswer(eventObject) {
     let optionButton = eventObject.target;
-    results.style.display = "block";
+    //results.style.display = "block";
+    if (!optionButton.matches("#btn")) return; 
+
     if (optionRight(optionButton)) {
       //resultText.textContent = "Correct!";
       setTimeout(hideResultText, 1000);
