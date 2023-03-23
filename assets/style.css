@@ -81,16 +81,10 @@ span {
     width: auto;
     height: 1000px;
     background-color: green;
+    background-image: url(./images/wormhole.png);
+    background-position-x: center;
+    background-repeat: no-repeat;
     border-radius: 10em;;
-  }
-  
-  .flex-container > div {
-    background-color: greenyellow;
-    background-image: url(/t-rick-vial-mort-suit/assets/images/portal.swirl.png);
-    width: 1000px;
-    height: 900px;
-    padding-bottom: 30px;
-    border-radius: 75em;
   }
 
 @tailwind base;
