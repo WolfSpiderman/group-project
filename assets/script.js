@@ -1,4 +1,6 @@
 var requestCharAll = "https://rickandmortyapi.com/api/character/[703,388,321,7,26,47,81,162,192,279,282,306,196,726,562,543,507,717,244,696]";
+var insultURL = "https://insult.mattbas.org/api/insult.json";
+var insult = "";
 //start button
 var startBtn = document.querySelector("#startBtn");
 //hidden game card 
@@ -22,6 +24,8 @@ var cardSpecies = document.querySelector("#cardSpecies");
 var cardOrigin = document.querySelector("#cardOrigin");
 var cardLast = document.querySelector("#cardLast");
 
+// var results = document.querySelector("#results");
+var resultText = document.querySelector("#result-text");
 
 //list of questions to use in questionH2
 
@@ -165,8 +169,6 @@ function hideCards() {
   //to display joke to hassle users for wrong answers
   //no corresponding div in index file atm
 
-    //var results = document.querySelector("#results");
-    //var resultText = document.querySelector("#result-text");
   
     // to hide result div
     //  use for insult api
@@ -248,20 +250,27 @@ function optionRight(optionButton) {
   //if answer wrong subtract 10seconds, show wrong or right in results div
 function checkAnswer(eventObject) {
     let optionButton = eventObject.target;
-    //results.style.display = "block";
+    results.style.display = "block";
     if (!optionButton.matches(".answerBtn")) return; 
 
-    [].forEach.call(charCards.querySelectorAll("hidden"),function(e){
+    if (optionRight(optionButton)) {
+      resultText.textContent = "Correct!";
+      [].forEach.call(charCards.querySelectorAll("hidden"),function(e){
         e.removeAttribute("hidden");
       });
-
-    if (optionRight(optionButton)) {
-      //resultText.textContent = "Correct!";
-      
       points++;
     } else {
-      //resultText.textContent = "Incorrect!";
-
+        fetch(insultURL)
+    .then(function (response) {
+        return response.json();
+    })
+    .then(function (data) {
+        console.log(data);
+        resultText.textContent = "Incorrect! " + data.insult + "!";
+    });
+      [].forEach.call(charCards.querySelectorAll("hidden"),function(e){
+        e.removeAttribute("hidden");
+      });
     }
 
   
