@@ -85,7 +85,7 @@ span {
     background-image: url(./images/wormhole.png);
     background-position-x: center;
     background-repeat: no-repeat;
-  }
+}
 
   #btn1, #btn2, #btn3, #btn4 {
     height: 40px;
@@ -96,3 +96,6 @@ span {
     border: 1px solid #E5E051;
     border-radius: 20%;
   }
+
+
+

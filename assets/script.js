@@ -248,7 +248,7 @@ function optionRight(optionButton) {
 function checkAnswer(eventObject) {
     let optionButton = eventObject.target;
     //results.style.display = "block";
-    if (!optionButton.matches("#btn")) return; 
+    if (!optionButton.matches(".answerBtn")) return; 
 
     if (optionRight(optionButton)) {
       //resultText.textContent = "Correct!";
