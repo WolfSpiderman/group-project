@@ -27,6 +27,8 @@ var cardLast = document.querySelector("#cardLast");
 // var results = document.querySelector("#results");
 var resultText = document.querySelector("#result-text");
 
+var endMsg = document.querySelector("#endMsg");
+
 //list of questions to use in questionH2
 
     //joshua working on these and api calls
@@ -289,6 +291,13 @@ function checkAnswer(eventObject) {
 function endQuiz() {
     hideCards();
     scoreCard.removeAttribute("hidden");
+    if (points > 17) {
+        endMsg.textContent = "Wow. I'd be lying if I said I was impressed, but you still did way better than I would've guessed. Nice job, I guess!";
+    } else if (points > 9) {
+        endMsg.textContent = "Could've been worse, I guess. About the same level of competency I expect from Morty.";
+    } else {
+        endMsg.textContent = "Man, you're dumb. You might even be dumber than JERRY! What are you even doing here? Go learn some shit!"
+    }
     score.textContent = finalScore;
 }
 
