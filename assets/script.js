@@ -292,7 +292,7 @@ function endQuiz() {
     hideCards();
     scoreCard.removeAttribute("hidden");
     if (points > 17) {
-        endMsg.textContent = "Wow. I'd be lying if I said I was impressed, but you still did way better than I would've guessed. Nice job, I guess!";
+        endMsg.textContent = "Wow. I'd be lying if I said I was impressed, but you still did way better than I would've predicted. Nice job, I guess!";
     } else if (points > 9) {
         endMsg.textContent = "Could've been worse, I guess. About the same level of competency I expect from Morty.";
     } else {
