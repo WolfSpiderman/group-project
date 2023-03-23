@@ -7,7 +7,7 @@ var gameCard = document.querySelector("#question-card");
 var scoreCard = document.querySelector("#score-card");
 var startCard = document.querySelector("#home-page");
 //display image cards here
-var charCards = document.querySelector("#charCard");
+var charCards = document.querySelector(".charCard");
 //display answer options/button
 var answerBtn1 = document.querySelector("#btn1");
 var answerBtn2 = document.querySelector("#btn2");
@@ -38,102 +38,102 @@ var questionList = [
     {
         question: "Abradolf Lincler died getting what for Rick?",
         choices: ["a. The Emancipation Proclamation", "b. The Ark of The Convenent", "c. Kalaxian Crystals", "d. Portal Tree Seeds"],
-        answer: "c"
+        answer: "c. Kalaxian Crystals"
     },
     {
         question: "What annual event was going on when Rick and Morty met Arthricia?",
         choices: ["a. Cat Nip Fever", "b. The Purge", "c. Catnap Savings", "d. The Witch Hunt"],
-        answer: "b"
+        answer: "b. The Purge"
     },
     {
         question: "Where did Rick and Birdperson meet?",
         choices: ["a. Bird World", "b. Birding Man", "c. The Battle of Blood Ridge", "d. The NX-5, brought to you by Wrangler"],
-        answer: "b"
+        answer: "b. Birding Man"
     },
     {
         question: "Who does Rick describe as 'half cold, unfeeling reptile, half also cold, euqally unfeeling machine'?",
         choices: ["a. Gatorbot", "b. Robosnake", "c. Crocubot", "d. Mechamamba"],
-        answer: "C"
+        answer: "c. Crocubot"
     },
     {
         question: "Where do we last see Ice-T?",
         choices: ["a. The Grammy's", "b. Snacking on Fig Newtons", "c. In the studio with Rick", "d. Alphabetrium"],
-        answer: "d"
+        answer: "d. Alphabetrium"
     },
     {
         question: "King FLippy Nips is the king of which planet?",
         choices: ["a. Pluto", "b. Forbodulon Prime", "c. Venzenulon-7", "d. Saturn"],
-        answer: "a"
+        answer: "a. Pluto"
     },
     {
         question: "What alien race is Krombopulos Micheal?",
         choices: ["a. Gazorpazorpians", "b. Gromflomite", "c. Traflorkian", "d. Krootabulan"],
-        answer: "b"
+        answer: "b. Gromflomite"
     },
     {
         question: "Why did beth shoot Mr. Poopybutthole?",
         choices: ["a. He shot first", "b. She didn't have any bad memories of him", "c. She missed her intended target", "d. She was brainwashed"],
-        answer: "b"
+        answer: "b. She didn't have any bad memories of him"
     },
     {
         question: "What is Regular Legs superpower?",
         choices: ["a. Being able to jump almost high enough to dunk", "b. Being tall enough to reach things at the store", "c. The speed of a person with normal sized legs", "d. all of the above"],
-        answer: "d"
+        answer: "d. all of the above"
     },
     {
         question: "What is Gear-Head's real name?",
         choices: ["a. Zinc Zuckbot", "b. Bill Williamson", "c. Locomotive 'Loki' Jenkins", "d. Revolio Clockberg Jr"],
-        answer: "d"
+        answer: "d. Revolio Clockberg Jr"
     },
     {
         question: "What turned out to be Scary Terry's weakness",
         choices: ["a. Laughing", "b. Running", "c. Crying", "d. Hiding"],
-        answer: "d"
+        answer: "d. Hiding"
     },
     {
         question: "What is in the atmosphere on Shrimply Pibbles' home planet",
         choices: ["a. Heroin", "b. Methane-phetamines", "c. Neon", "d. Chlorine"],
-        answer: "a"
+        answer: "a. Heroin"
     },
     {
         question: "Which layer did was Zeep Xanflorp from",
         choices: ["a. Microverse", "b. Miniverse", "c. Tinyverse", "d. Teenyverse"],
-        answer: "a"
+        answer: "a. Microverse"
     },
     {
         question: "What type of Rick is this?",
         choices: ["a. Clone", "b. Alternate Dimension Version", "c. Decoy", "d. Robot"],
-        answer: "b"
+        answer: "b. Alternate Dimension Version"
     },
     {
         question: "How many kids does Vermigurber claim to have?",
         choices: ["a. 200,000", "b. 400,000", "c. 800,000", "d. 1,000,000"],
-        answer: "c"
+        answer: "c. 800,000"
     },
     {
         question: "Balthromaw soul-bonded with?",
         choices: ["a. Rick", "b. Morty", "c. Summer", "d. All of the above, plus 6 other dragons all at once"],
-        answer: "d"
+        answer: "d. All of the above, plus 6 other dragons all at once"
     },
     {
         question: "What type of Morty is this?",
         choices: ["a. Clone", "b. Alternate Dimension version", "c. Decoy", "d. Robot"],
-        answer: "c"
+        answer: "c. Decoy"
     },
     {
         question: "Why does Mr. Always-Wants-To-Be-Hunted want to be hunted?",
         choices: ["a. He requires adrenaline to survive", "b. To achieve an orgasmic afterlife", "c. To eventually acquire bullet immunity", "d. Nobody knows."],
-        answer: "d"
+        answer: "d. Nobody knows."
     },
     {
         question: "Who was the villain Planetina showed up to fight when she met Morty?",
         choices: ["a. Methape", "b. Pollutatron", "c. Oil Boil", "d. Diesel Weasel"],
-        answer: "d"
+        answer: "d. Diesel Weasel"
     },
     {
         question: "Where did sticky come from",
         choices: ["a. Morty's testicles", "b. Space dicks", "c. A Deshrinking experiment gone wrong", "d. Zues"],
-        answer: "a"
+        answer: "a. Morty's testicles"
     },
 
 ];

@@ -84,9 +84,4 @@ span {
     background-image: url(./images/wormhole.png);
     background-position-x: center;
     background-repeat: no-repeat;
-    border-radius: 10em;;
   }
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
