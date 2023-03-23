@@ -5,7 +5,7 @@ var startBtn = document.querySelector("#startBtn");
 var gameCard = document.querySelector("#question-card");
 //hidden score card
 var scoreCard = document.querySelector("#score-card");
-
+var startCard = document.querySelector("#home-page");
 //display image cards here
 var charCards = document.querySelector("#charCard");
 //display answer options/button
