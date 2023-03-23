@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="/dist/output.css" rel="stylesheet">
+    <!-- <link href="/dist/output.css" rel="stylesheet"> -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
@@ -14,19 +14,18 @@
 </head>
 <body>
     <header>
-        <h1>T<span>RICK<span class="middle">RICK<span class="top">RICK</span></span></span>VIAL <span>MORT<span class="middle">MORT<span class="top">MORT</span></span></span>SUIT</h1>
+        <h1 id="title">T<span>RICK<span class="middle">RICK<span class="top">RICK</span></span></span>VIAL <span>MORT<span class="middle">MORT<span class="top">MORT</span></span></span>SUIT</h1>
     </header>
-
-
     
     <div class="flex-container">
      <main>
 
-        <div id = "home-page" class = "card">
+        <div id = "home-page" class="card">
             <img id = "background">
             <button id="startBtn">Start</button> 
         </div>
-        <div hidden id = "question-card" class = "card">
+        <div hidden id="question-card" class="card">
+            <div id="question-cardA">
             
             <div class="charCard">
                 <img id="cardImg">
@@ -40,18 +39,24 @@
                     <h3>Last seen:</h3>
                     <p id="cardLast"></p>
                 </div>
-                </div>
+            </div>
 
         <h2 class="question">Press 'Start' to beg-uurrp-in the game!</h2>
         
-          
             <button class="answerBtn" id="btn1"></button>
             <button class="answerBtn" id="btn2"></button>
             <button class="answerBtn" id="btn3"></button>
             <button class="answerBtn" id="btn4"></button>
+        
+            <div id="results">
+                <h3 id="result-text"></h3>
+                </div>
         </div>
-        <div hidden id = "score-card" class = "card">
-            <h2>You survived!</h2>
+
+        </div>
+
+        <div hidden id="score-card" class="card">
+            <h2 id="endMsg"></h2>
             <p>Your final score is : <span id = "score"></span>.</p>
         </div>
     </main>
