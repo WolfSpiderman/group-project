@@ -21,7 +21,7 @@ fetch(requestCharAll)
 .then(function (data) {
     console.log(data);
     for (i = 0; i < data.length; i++) {
-        var charInfo = [data[i].image, data[i].name, data[i].status, data[i].species, data[i].type, data[i].origin.name, data[i].location.name];
+        var charInfo = [data[i].image, data[i].name, data[i].status, data[i].type, data[i].species, data[i].origin.name, data[i].location.name];
         console.log(charInfo);
         charCards.setAttribute("src", charInfo[0]);
     }
