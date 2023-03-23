@@ -24,4 +24,4 @@
 
 ## Upcoming Developments
 
-Adding bonus question(s) that are non-multiple choice, such as a drag-n-drop 'put them in the right order' type questions. Making high scores public.
+Adding bonus question(s) that are non-multiple choice, such as a drag-n-drop 'put them in the right order' type questions. Making high scores public. Changing how points are earned; earned more points for quicker answers, rather than only for correct answers.
