@@ -1,23 +1,20 @@
-# group-project
-    User Story: AS AN ultimate nerd
-        I WANT to test my knowledge of Rick and Morty 
-        SO THAT I can prove my ultimate nerd status 
+# TRICKvial MORTsuit
 
-    Acceptance Criteria: 
-        GIVEN I'm taking the ultimate Rick and Morty quiz
-        WHEN I load the webpage
-        THEN the game's welcome/cover page appears
-        WHEN I press start
-        THEN the game page appears with the first question 
-        WHEN one question is answered
-        THEN another question appears 
-        WHEN a player gets a question wrong or right
-        THEN the scores are incremented and decremented
-        WHEN the game is over
-        THEN the scoreboard page appears
-        WHEN on scoreboard page
-        THEN player can view their score
+## Description
 
+##  Installation
+
+N/A, it's a webpage.
+
+## Usage
+
+The webpage can be found [here](https://wolspiderman.github.io/t-rick-vial-mort-suit/).
+
+When the user loads the page, they will only see the header of the page, and a button that looks suspiciously like some cheap knock off of one of Rick's probably trademarked portals.
+
+The following is a screenshot of the page in the middle of the quiz:
+
+<img src="./assets/images/trickvialmortsuit.png" alt="screenshot of the daily schedduler webpage" style="display: block; margin: 0; max-width: 300px;">
     
 ## cited-sources
 1. https://rickandmortyapi.com
