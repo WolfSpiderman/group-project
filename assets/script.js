@@ -3,11 +3,16 @@ var insultURL = "https://insult.mattbas.org/api/insult.json";
 var insult = "";
 //start button
 var startBtn = document.querySelector("#startBtn");
+var startTime;
+var endTime;
+var currentPoints;
 //hidden game card 
 var gameCard = document.querySelector("#question-card");
 //hidden score card
 var scoreCard = document.querySelector("#score-card");
+var highscoreCard = document.querySelector("#highscore-card");
 var startCard = document.querySelector("#home-page");
+var nameCard = document.querySelector("#name-card");
 //display image cards here
 var charCards = document.querySelector(".charCard");
 //display answer options/button
@@ -17,7 +22,11 @@ var answerBtn3 = document.querySelector("#btn3");
 var answerBtn4 = document.querySelector("#btn4");
 
 var nextBtn = document.querySelector("#nextBtn");
+var scoreBtn = document.querySelector("#scoreBtn");
 var charInfo = [];
+
+var nameInput = document.querySelector("#name-input");
+var userName;
 
 var cardImg = document.querySelector("#cardImg");
 var cardName = document.querySelector("#cardName");
@@ -31,6 +40,16 @@ var cardLast = document.querySelector("#cardLast");
 var resultText = document.querySelector("#result-text");
 
 var endMsg = document.querySelector("#endMsg");
+
+if (JSON.parse(localStorage.getItem("highscores")) == null) {
+    var savedScores = [];
+} else {
+    var savedScores = JSON.parse(localStorage.getItem("highscores"));
+}
+var scores = savedScores;
+console.log(scores);
+var hsName = document.querySelector("#hsName");
+var hsScore = document.querySelector("#hsScore");
 
 //list of questions to use in questionH2
 
@@ -67,13 +86,13 @@ var questionList = [
         answer: "d. Alphabetrium"
     },
     {
-        question: "King FLippy Nips is the king of which planet?",
+        question: "King Flippy Nips is the king of which planet?",
         choices: ["a. Pluto", "b. Forbodulon Prime", "c. Venzenulon-7", "d. Saturn"],
         answer: "a. Pluto" //hide both locations
     },
     {
         question: "What alien race is Krombopulos Micheal?",
-        choices: ["a. Gazorpazorpians", "b. Gromflomite", "c. Traflorkian", "d. Krootabulan"],
+        choices: ["a. Gazorpazorpian", "b. Gromflomite", "c. Traflorkian", "d. Krootabulan"],
         answer: "b. Gromflomite" //hide type 
     },
     {
@@ -92,17 +111,17 @@ var questionList = [
         answer: "d. Revolio Clockberg Jr" //hide name
     },
     {
-        question: "What turned out to be Scary Terry's weakness",
+        question: "What turned out to be Scary Terry's weakness?",
         choices: ["a. Laughing", "b. Running", "c. Crying", "d. Hiding"],
         answer: "d. Hiding"
     },
     {
-        question: "What is in the atmosphere on Shrimply Pibbles' home planet",
+        question: "What is in the atmosphere on Shrimply Pibbles' home planet?",
         choices: ["a. Heroin", "b. Methane-phetamines", "c. Neon", "d. Chlorine"],
         answer: "a. Heroin"
     },
     {
-        question: "Which layer dimension was Zeep Xanflorp from",
+        question: "Which layer sub-dimension was Zeep Xanflorp from?",
         choices: ["a. Microverse", "b. Miniverse", "c. Tinyverse", "d. Teenyverse"],
         answer: "a. Microverse" // hide type and both locations
     },
@@ -117,7 +136,7 @@ var questionList = [
         answer: "c. 800,000"
     },
     {
-        question: "Balthromaw soul-bonded with?",
+        question: "Who has Balthromaw soul-bonded with in his home realm?",
         choices: ["a. Rick", "b. Morty", "c. Summer", "d. All of the above, plus 6 other dragons all at once"],
         answer: "d. All of the above, plus 6 other dragons all at once"
     },
@@ -137,8 +156,8 @@ var questionList = [
         answer: "d. Diesel Weasel"
     },
     {
-        question: "Where did sticky come from",
-        choices: ["a. Morty's testicles", "b. Space dicks", "c. A Deshrinking experiment gone wrong", "d. Zues"],
+        question: "Where did sticky come from?",
+        choices: ["a. Morty's testicles", "b. Space dicks", "c. A de-shrinking incident gone wrong", "d. Zues"],
         answer: "a. Morty's testicles" // hide type and origin
     },
 
@@ -167,6 +186,8 @@ function hideCards() {
     startCard.setAttribute("hidden", true);
     gameCard.setAttribute("hidden", true);
     scoreCard.setAttribute("hidden", true);
+    highscoreCard.setAttribute("hidden", true);
+    nameCard.setAttribute("hidden", true);
 }
   
   //function below can be used for META MVP
@@ -221,6 +242,7 @@ function displayQuestion() {
     let questionH2 = document.querySelector(".question");
     questionH2.textContent = question.question;
   
+    startTime = Date.now();
     fetch(requestCharAll)
     .then(function (response) {
         return response.json();
@@ -258,18 +280,23 @@ function optionRight(optionButton) {
     return optionButton.textContent === questionList[currentQuestion].answer;
 }
   
-  //if answer wrong subtract 10seconds, show wrong or right in results div
 function checkAnswer(eventObject) {
     let optionButton = eventObject.target;
     if (!optionButton.matches(".answerBtn")) return; 
     results.style.display = "block";
+
+    endTime = Date.now();
+    timeTaken = Math.floor((endTime - startTime) / 10);
+    currentPoints = (1000 - timeTaken);
+    console.log(currentPoints);
 
     if (optionRight(optionButton)) {
       resultText.textContent = "Correct!";
       [].forEach.call(charCards.querySelectorAll(".hidden"),function(e){
         e.removeAttribute("class", "hidden");
       });
-      points++;
+      points += currentPoints;
+      console.log(points);
     } else {
         fetch(insultURL)
     .then(function (response) {
@@ -295,25 +322,58 @@ function checkAnswer(eventObject) {
 
 function nextQ() {
     currentQuestion++;
-    console.log(points + "/" + currentQuestion);
-    finalScore = points + "/" + currentQuestion;
     if (currentQuestion < questionList.length) {
       displayQuestion();
     } else {
       endQuiz();
     }};
 
+function renderHighScores() {
+    for (i = 0; i < scores.length; i++) {
+        var newHSname = document.createElement("li");
+        var newHSscore = document.createElement("li");
+        newHSname.textContent = scores[i].name;
+        newHSscore.textContent = scores[i].score;
+        hsName.appendChild(newHSname);
+        hsScore.appendChild(newHSscore);
+    }
+}    
+
+function highscore() {
+    hideCards();
+    userName = nameInput.value;
+    var user = {
+        name: userName,
+        score: points
+    };
+    scores.push(user);
+    console.log(scores);
+    if (scores[1]) {
+        scores.sort((a, b) => b.score - a.score);
+    }
+    localStorage.setItem("highscores", JSON.stringify(scores));
+    highscoreCard.removeAttribute("hidden");
+    renderHighScores();
+}
+
+function getName() {
+    hideCards();
+    nameCard.removeAttribute("hidden");
+    nameBtn.addEventListener("click", highscore);
+}
+
 function endQuiz() {
     hideCards();
     scoreCard.removeAttribute("hidden");
-    if (points > 17) {
+    if (points > 13000) {
         endMsg.textContent = "Wow. I'd be lying if I said I was impressed, but you still did way better than I would've predicted. Nice job, I guess!";
-    } else if (points > 9) {
+    } else if (points > 7000) {
         endMsg.textContent = "Could've been worse, I guess. About the same level of competency I expect from Morty.";
     } else {
         endMsg.textContent = "Man, you're dumb. You might even be dumber than JERRY! What are you even doing here? Go learn some shit!"
     }
-    score.textContent = finalScore;
+    score.textContent = points + "!";
+    scoreBtn.addEventListener("click", getName)
 }
 
 init();

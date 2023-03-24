@@ -5,6 +5,10 @@
     color: white;
 }
 
+li {
+    list-style-type: lower-roman;
+}
+
 header {
     height: 100px;
     background: radial-gradient(circle at 77% 80%, #FDFEB4 2.5%, transparent 2.5%),
@@ -171,7 +175,7 @@ span {
     height: 300px;
 }
 
-#score-card {
+#score-card, #name-card, #highscore-card {
     background-color: #1B863C;
     border: 3px solid #E5E051;
     width: 50vw;
@@ -196,13 +200,17 @@ span {
     color: #E9E072;
 }
 
-#nextBtn {
+#nextBtn, #scoreBtn, #nameBtn {
     background-color: #1B863C;
     border: 3px solid #E5E051;
     font-size: 24px;
     width: fit-content;
     color: #E9E072;
 } 
+
+#name-input {
+    color: black;
+}
 
 @media (max-width: 601px) {
     .charCard {
@@ -217,5 +225,26 @@ span {
     #cardImg {
         height: 200px;
         width: 200px;
+    }
+}
+
+@media (max-width: 404px) {
+    
+    #title {
+        font-size: 42px;
+    }
+    
+    .middle {
+        top: -10%;
+        right: -2%;
+        letter-spacing: 1.5px;
+        font-size: 39px;
+    }
+    
+    .top {
+        top: 1%;
+        right: -1%;
+        letter-spacing: 2px;
+        font-size: 38px;
     }
 }
