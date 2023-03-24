@@ -7,6 +7,7 @@ var startBtn = document.querySelector("#startBtn");
 var gameCard = document.querySelector("#question-card");
 //hidden score card
 var scoreCard = document.querySelector("#score-card");
+var highscoreCard = document.querySelector("#highscore-card");
 var startCard = document.querySelector("#home-page");
 //display image cards here
 var charCards = document.querySelector(".charCard");
@@ -17,6 +18,7 @@ var answerBtn3 = document.querySelector("#btn3");
 var answerBtn4 = document.querySelector("#btn4");
 
 var nextBtn = document.querySelector("#nextBtn");
+var scoreBtn = document.querySelector("#scoreBtn");
 var charInfo = [];
 
 var cardImg = document.querySelector("#cardImg");
@@ -167,6 +169,7 @@ function hideCards() {
     startCard.setAttribute("hidden", true);
     gameCard.setAttribute("hidden", true);
     scoreCard.setAttribute("hidden", true);
+    highscoreCard.setAttribute("hidden", true);
 }
   
   //function below can be used for META MVP
@@ -303,6 +306,11 @@ function nextQ() {
       endQuiz();
     }};
 
+function highscore() {
+    hideCards();
+    highscoreCard.removeAttribute("hidden");
+}
+
 function endQuiz() {
     hideCards();
     scoreCard.removeAttribute("hidden");
@@ -314,6 +322,7 @@ function endQuiz() {
         endMsg.textContent = "Man, you're dumb. You might even be dumber than JERRY! What are you even doing here? Go learn some shit!"
     }
     score.textContent = finalScore;
+    scoreBtn.addEventListener("click", highscore)
 }
 
 init();
