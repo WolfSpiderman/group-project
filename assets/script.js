@@ -47,7 +47,6 @@ if (JSON.parse(localStorage.getItem("highscores")) == null) {
     var savedScores = JSON.parse(localStorage.getItem("highscores"));
 }
 var scores = savedScores;
-console.log(scores);
 var hsName = document.querySelector("#hsName");
 var hsScore = document.querySelector("#hsScore");
 
@@ -62,7 +61,7 @@ var hsScore = document.querySelector("#hsScore");
 var questionList = [
     {
         question: "Abradolf Lincler sacrificed himself getting what for Rick?",
-        choices: ["a. The Emancipation Proclamation", "b. The Ark of The Convenent", "c. Kalaxian Crystals", "d. Portal Tree Seeds"],
+        choices: ["a. The Emancipation Proclamation", "b. The Ark of The Covenant", "c. Kalaxian Crystals", "d. Portal Tree Seeds"],
         answer: "c. Kalaxian Crystals" 
     },
     {
@@ -219,7 +218,6 @@ function startQuiz(){
     gameCard.removeAttribute("hidden");
     gameCard.setAttribute("display", "flex");
 
-    console.log(questionList);
     currentQuestion = 0;
     points = 0;
     displayQuestion();
@@ -249,7 +247,6 @@ function displayQuestion() {
     })
     .then(function (data) {
         charInfo = [data[currentQuestion].image, data[currentQuestion].name, data[currentQuestion].status, data[currentQuestion].type, data[currentQuestion].species, data[currentQuestion].origin.name, data[currentQuestion].location.name];
-        console.log(charInfo);
         cardImg.setAttribute("src", charInfo[0]);
         if (currentQuestion === 3) {cardImg.setAttribute("class", "hidden")};
         cardName.textContent = charInfo[1];
@@ -288,7 +285,6 @@ function checkAnswer(eventObject) {
     endTime = Date.now();
     timeTaken = Math.floor((endTime - startTime) / 10);
     currentPoints = (1000 - timeTaken);
-    console.log(currentPoints);
 
     if (optionRight(optionButton)) {
       resultText.textContent = "Correct!";
@@ -296,14 +292,12 @@ function checkAnswer(eventObject) {
         e.removeAttribute("class", "hidden");
       });
       points += currentPoints;
-      console.log(points);
     } else {
         fetch(insultURL)
     .then(function (response) {
         return response.json();
     })
     .then(function (data) {
-        console.log(data);
         resultText.textContent = "Incorrect! " + data.insult + "!";
     });
       [].forEach.call(charCards.querySelectorAll(".hidden"),function(e){
@@ -347,7 +341,6 @@ function highscore() {
         score: points
     };
     scores.push(user);
-    console.log(scores);
     if (scores[1]) {
         scores.sort((a, b) => b.score - a.score);
     }
