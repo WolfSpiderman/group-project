@@ -192,3 +192,11 @@ span {
 #result-text {
     color: #E9E072;
 }
+
+#nextBtn {
+    background-color: #1B863C;
+    border: 3px solid #E5E051;
+    font-size: 24px;
+    width: fit-content;
+    color: #E9E072;
+}

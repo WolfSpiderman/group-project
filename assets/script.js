@@ -16,6 +16,8 @@ var answerBtn2 = document.querySelector("#btn2");
 var answerBtn3 = document.querySelector("#btn3");
 var answerBtn4 = document.querySelector("#btn4");
 
+var nextBtn = document.querySelector("#nextBtn");
+
 var cardImg = document.querySelector("#cardImg");
 var cardName = document.querySelector("#cardName");
 var cardStatus = document.querySelector("#cardStatus");
@@ -176,6 +178,7 @@ function hideCards() {
     //  use for insult api
     function hideResultText() {
       results.style.display = "none";
+      nextBtn.setAttribute("class", "hidden");
     }
 
   
@@ -204,6 +207,8 @@ function startQuiz(){
   
   //display the question and answer options for the current question
 function displayQuestion() {
+    nextBtn.removeEventListener("click", nextQ);
+    hideResultText();
     let question = questionList[currentQuestion];
     let options = question.choices;
   
@@ -220,18 +225,18 @@ function displayQuestion() {
         var charInfo = [data[currentQuestion].image, data[currentQuestion].name, data[currentQuestion].status, data[currentQuestion].type, data[currentQuestion].species, data[currentQuestion].origin.name, data[currentQuestion].location.name];
         console.log(charInfo);
         cardImg.setAttribute("src", charInfo[0]);
-        if (currentQuestion[3]) {cardImg.setAttribute("hidden", true)};
+        if (currentQuestion[3]) {cardImg.setAttribute("class", "hidden")};
         cardName.textContent = charInfo[1];
-        if (currentQuestion[3] || currentQuestion[9]) {cardName.setAttribute("hidden", true)};
+        if (currentQuestion[3] || currentQuestion[9]) {cardName.setAttribute("class", "hidden")};
         cardStatus.textContent = charInfo[2];
         cardType.textContent = charInfo[3];
-        if (currentQuestion[6] || currentQuestion[12] || currentQuestion[13]|| currentQuestion[16] || currentQuestion[19]) {cardType.setAttribute("hidden", true)};
+        if (currentQuestion[6] || currentQuestion[12] || currentQuestion[13]|| currentQuestion[16] || currentQuestion[19]) {cardType.setAttribute("class", "hidden")};
         cardSpecies.textContent = charInfo[4];
-        if (currentQuestion[6] || currentQuestion[13] || currentQuestion[16]) {cardSpecies.setAttribute("hidden", true)};
+        if (currentQuestion[6] || currentQuestion[13] || currentQuestion[16]) {cardSpecies.setAttribute("class", "hidden")};
         cardOrigin.textContent = charInfo[5];
-        if (currentQuestion[5] || currentQuestion[12] || currentQuestion[13] || currentQuestion[16]) {cardOrigin.setAttribute("hidden", true)};
+        if (currentQuestion[5] || currentQuestion[12] || currentQuestion[13] || currentQuestion[16]) {cardOrigin.setAttribute("class", "hidden")};
         cardLast.textContent = charInfo[6];
-        if (currentQuestion[5] || currentQuestion[12] || currentQuestion[13] || currentQuestion[16] || currentQuestion[19]) {cardLast.setAttribute("hidden", true)};
+        if (currentQuestion[5] || currentQuestion[12] || currentQuestion[13] || currentQuestion[16] || currentQuestion[19]) {cardLast.setAttribute("class", "hidden")};
 });
 
     for (let i = 1; i <= options.length; i++) {
@@ -252,8 +257,8 @@ function optionRight(optionButton) {
   //if answer wrong subtract 10seconds, show wrong or right in results div
 function checkAnswer(eventObject) {
     let optionButton = eventObject.target;
-    results.style.display = "block";
     if (!optionButton.matches(".answerBtn")) return; 
+    results.style.display = "block";
 
     if (optionRight(optionButton)) {
       resultText.textContent = "Correct!";
@@ -275,8 +280,12 @@ function checkAnswer(eventObject) {
       });
     }
 
-  
+    nextBtn.removeAttribute("class", "hidden");
     
+    nextBtn.addEventListener("click", nextQ);
+}
+
+function nextQ() {
     currentQuestion++;
     console.log(points + "/" + currentQuestion);
     finalScore = points + "/" + currentQuestion;
@@ -284,9 +293,7 @@ function checkAnswer(eventObject) {
       displayQuestion();
     } else {
       endQuiz();
-    }
-}
-
+    }};
 
 function endQuiz() {
     hideCards();
