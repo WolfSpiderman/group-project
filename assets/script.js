@@ -148,17 +148,17 @@ var questionList = [
 
 //Acceptance Criteria: 
 
-       // GIVEN I'm taking the ultimate Rick and Morty quiz
-       // WHEN I load the webpage
-       // THEN the game's welcome/cover page appears
-       // WHEN I press start
-       // THEN the game page appears with the first question 
-       // WHEN one question is answered
-       // THEN another question appears 
-       // WHEN a player gets a question wrong or right
-       // THEN the scores are incremented and decremented
-       // WHEN the game is over
-       // THEN the scoreboard page appears
+    //    GIVEN I'm taking the ultimate Rick and Morty quiz
+    //    WHEN I load the webpage
+    //    THEN the game's welcome/cover page appears
+    //    WHEN I press start
+    //    THEN the game page appears with the first question 
+    //    WHEN one question is answered
+    //    THEN another question appears 
+    //    WHEN a player gets a question wrong or right
+    //    THEN the scores are incremented and decremented
+    //    WHEN the game is over
+    //    THEN the scoreboard page appears
        // WHEN on scoreboard page
        // THEN player can view their score
 
@@ -210,6 +210,10 @@ function startQuiz(){
 function displayQuestion() {
     nextBtn.removeEventListener("click", nextQ);
     hideResultText();
+    answerBtn1.disabled = false;
+    answerBtn2.disabled = false;
+    answerBtn3.disabled = false;
+    answerBtn4.disabled = false;
     let question = questionList[currentQuestion];
     let options = question.choices;
   
@@ -279,6 +283,10 @@ function checkAnswer(eventObject) {
         e.removeAttribute("class", "hidden");
       });
     }
+    answerBtn1.disabled = true;
+    answerBtn2.disabled = true;
+    answerBtn3.disabled = true;
+    answerBtn4.disabled = true;
 
     nextBtn.removeAttribute("class", "hidden");
     
