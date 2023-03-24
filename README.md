@@ -20,6 +20,7 @@ The following is a screenshot of the page in the middle of the quiz:
 1. https://rickandmortyapi.com
 2. https://insult.mattbas.org/api/
 3. https://codepen.io/nicktayloruk/pen/MWaxMEN
+4. https://tailwindcss.com/docs/installation/play-cdn
 
 ## Upcoming Developments
 
