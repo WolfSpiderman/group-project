@@ -157,15 +157,18 @@ span {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 35vw;
+    width: 600px;
     background-color: darkgray;
-    font-size: 18px;
 }
 
 .charStats{
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
     width: 300px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 20px;
+    height: 300px;
 }
 
 #score-card {
@@ -201,7 +204,18 @@ span {
     color: #E9E072;
 } 
 
-.charStats {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 22px;
+@media (max-width: 601px) {
+    .charCard {
+        width: 400px;
+    }
+
+    .charStats {
+        height: 200px;
+        font-size: 14px;
+    }
+
+    #cardImg {
+        height: 200px;
+        width: 200px;
+    }
 }

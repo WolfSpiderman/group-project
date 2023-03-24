@@ -102,7 +102,7 @@ var questionList = [
         answer: "a. Heroin"
     },
     {
-        question: "Which layer did was Zeep Xanflorp from",
+        question: "Which layer dimension was Zeep Xanflorp from",
         choices: ["a. Microverse", "b. Miniverse", "c. Tinyverse", "d. Teenyverse"],
         answer: "a. Microverse" // hide type and both locations
     },
