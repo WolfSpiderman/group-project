@@ -8,7 +8,7 @@ N/A, it's a webpage.
 
 ## Usage
 
-The webpage can be found [here](https://wolspiderman.github.io/t-rick-vial-mort-suit/).
+The webpage can be found [here](https://wolfspiderman.github.io/t-rick-vial-mort-suit/).
 
 When the user loads the page, they will only see the header of the page, and a button that looks suspiciously like some cheap knock off of one of Rick's probably trademarked portals.
 
