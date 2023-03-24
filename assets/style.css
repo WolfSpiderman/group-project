@@ -155,7 +155,7 @@ span {
 
 .charCard {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     width: 35vw;
     background-color: darkgray;
@@ -199,4 +199,9 @@ span {
     font-size: 24px;
     width: fit-content;
     color: #E9E072;
+} 
+
+.charStats {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 22px;
 }

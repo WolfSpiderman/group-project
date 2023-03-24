@@ -17,6 +17,7 @@ var answerBtn3 = document.querySelector("#btn3");
 var answerBtn4 = document.querySelector("#btn4");
 
 var nextBtn = document.querySelector("#nextBtn");
+var charInfo = [];
 
 var cardImg = document.querySelector("#cardImg");
 var cardName = document.querySelector("#cardName");
@@ -221,22 +222,21 @@ function displayQuestion() {
         return response.json();
     })
     .then(function (data) {
-        console.log(data);
-        var charInfo = [data[currentQuestion].image, data[currentQuestion].name, data[currentQuestion].status, data[currentQuestion].type, data[currentQuestion].species, data[currentQuestion].origin.name, data[currentQuestion].location.name];
+        charInfo = [data[currentQuestion].image, data[currentQuestion].name, data[currentQuestion].status, data[currentQuestion].type, data[currentQuestion].species, data[currentQuestion].origin.name, data[currentQuestion].location.name];
         console.log(charInfo);
         cardImg.setAttribute("src", charInfo[0]);
-        if (currentQuestion[3]) {cardImg.setAttribute("class", "hidden")};
+        if (currentQuestion === 3) {cardImg.setAttribute("class", "hidden")};
         cardName.textContent = charInfo[1];
-        if (currentQuestion[3] || currentQuestion[9]) {cardName.setAttribute("class", "hidden")};
+        if (currentQuestion === 3 || currentQuestion === 9) {cardName.setAttribute("class", "hidden")};
         cardStatus.textContent = charInfo[2];
         cardType.textContent = charInfo[3];
-        if (currentQuestion[6] || currentQuestion[12] || currentQuestion[13]|| currentQuestion[16] || currentQuestion[19]) {cardType.setAttribute("class", "hidden")};
+        if (currentQuestion === 6 || currentQuestion === 12 || currentQuestion === 13|| currentQuestion === 16 || currentQuestion === 19) {cardType.setAttribute("class", "hidden")};
         cardSpecies.textContent = charInfo[4];
-        if (currentQuestion[6] || currentQuestion[13] || currentQuestion[16]) {cardSpecies.setAttribute("class", "hidden")};
+        if (currentQuestion === 6 || currentQuestion === 13 || currentQuestion === 16) {cardSpecies.setAttribute("class", "hidden")};
         cardOrigin.textContent = charInfo[5];
-        if (currentQuestion[5] || currentQuestion[12] || currentQuestion[13] || currentQuestion[16]) {cardOrigin.setAttribute("class", "hidden")};
+        if (currentQuestion === 5 || currentQuestion === 12 || currentQuestion === 13 || currentQuestion === 16) {cardOrigin.setAttribute("class", "hidden")};
         cardLast.textContent = charInfo[6];
-        if (currentQuestion[5] || currentQuestion[12] || currentQuestion[13] || currentQuestion[16] || currentQuestion[19]) {cardLast.setAttribute("class", "hidden")};
+        if (currentQuestion === 5 || currentQuestion === 12 || currentQuestion === 13 || currentQuestion === 16 || currentQuestion === 19) {cardLast.setAttribute("class", "hidden")};
 });
 
     for (let i = 1; i <= options.length; i++) {
@@ -262,8 +262,8 @@ function checkAnswer(eventObject) {
 
     if (optionRight(optionButton)) {
       resultText.textContent = "Correct!";
-      [].forEach.call(charCards.querySelectorAll("hidden"),function(e){
-        e.removeAttribute("hidden");
+      [].forEach.call(charCards.querySelectorAll(".hidden"),function(e){
+        e.removeAttribute("class", "hidden");
       });
       points++;
     } else {
@@ -275,8 +275,8 @@ function checkAnswer(eventObject) {
         console.log(data);
         resultText.textContent = "Incorrect! " + data.insult + "!";
     });
-      [].forEach.call(charCards.querySelectorAll("hidden"),function(e){
-        e.removeAttribute("hidden");
+      [].forEach.call(charCards.querySelectorAll(".hidden"),function(e){
+        e.removeAttribute("class", "hidden");
       });
     }
 
