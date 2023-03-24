@@ -92,7 +92,7 @@ var questionList = [
     },
     {
         question: "What alien race is Krombopulos Micheal?",
-        choices: ["a. Gazorpazorpians", "b. Gromflomite", "c. Traflorkian", "d. Krootabulan"],
+        choices: ["a. Gazorpazorpian", "b. Gromflomite", "c. Traflorkian", "d. Krootabulan"],
         answer: "b. Gromflomite" //hide type 
     },
     {
@@ -111,17 +111,17 @@ var questionList = [
         answer: "d. Revolio Clockberg Jr" //hide name
     },
     {
-        question: "What turned out to be Scary Terry's weakness",
+        question: "What turned out to be Scary Terry's weakness?",
         choices: ["a. Laughing", "b. Running", "c. Crying", "d. Hiding"],
         answer: "d. Hiding"
     },
     {
-        question: "What is in the atmosphere on Shrimply Pibbles' home planet",
+        question: "What is in the atmosphere on Shrimply Pibbles' home planet?",
         choices: ["a. Heroin", "b. Methane-phetamines", "c. Neon", "d. Chlorine"],
         answer: "a. Heroin"
     },
     {
-        question: "Which layer dimension was Zeep Xanflorp from",
+        question: "Which layer sub-dimension was Zeep Xanflorp from?",
         choices: ["a. Microverse", "b. Miniverse", "c. Tinyverse", "d. Teenyverse"],
         answer: "a. Microverse" // hide type and both locations
     },
@@ -136,7 +136,7 @@ var questionList = [
         answer: "c. 800,000"
     },
     {
-        question: "Balthromaw soul-bonded with?",
+        question: "Who has Balthromaw soul-bonded with in his home realm?",
         choices: ["a. Rick", "b. Morty", "c. Summer", "d. All of the above, plus 6 other dragons all at once"],
         answer: "d. All of the above, plus 6 other dragons all at once"
     },
@@ -156,8 +156,8 @@ var questionList = [
         answer: "d. Diesel Weasel"
     },
     {
-        question: "Where did sticky come from",
-        choices: ["a. Morty's testicles", "b. Space dicks", "c. A Deshrinking experiment gone wrong", "d. Zues"],
+        question: "Where did sticky come from?",
+        choices: ["a. Morty's testicles", "b. Space dicks", "c. A de-shrinking incident gone wrong", "d. Zues"],
         answer: "a. Morty's testicles" // hide type and origin
     },
 

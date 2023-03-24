@@ -227,3 +227,24 @@ span {
         width: 200px;
     }
 }
+
+@media (max-width: 404px) {
+    
+    #title {
+        font-size: 42px;
+    }
+    
+    .middle {
+        top: -10%;
+        right: -2%;
+        letter-spacing: 1.5px;
+        font-size: 39px;
+    }
+    
+    .top {
+        top: 1%;
+        right: -1%;
+        letter-spacing: 2px;
+        font-size: 38px;
+    }
+}
