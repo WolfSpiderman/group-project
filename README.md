@@ -14,7 +14,7 @@ When the user loads the page, they will only see the header of the page, and a b
 
 The following is a screenshot of the page in the middle of the quiz:
 
-<img src="./assets/images/trickvialmortsuit.png" alt="screenshot of the daily schedduler webpage" style="display: block; margin: 0; max-width: 300px;">
+<img src="./assets/images/trickvialmortsuit.png" alt="screenshot of Rick and Morty character trivia webpage" style="display: block; margin: 0; max-width: 300px;">
     
 ## cited-sources
 1. https://rickandmortyapi.com
