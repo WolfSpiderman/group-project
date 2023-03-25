@@ -231,20 +231,20 @@ span {
 @media (max-width: 404px) {
     
     #title {
-        font-size: 42px;
+        font-size: 40px;
     }
     
     .middle {
-        top: -10%;
-        right: -2%;
+        top: -7%;
+        right: -1%;
         letter-spacing: 1.5px;
-        font-size: 39px;
+        font-size: 37px;
     }
     
     .top {
-        top: 1%;
-        right: -1%;
+        top: 3%;
+        right: 1%;
         letter-spacing: 2px;
-        font-size: 38px;
+        font-size: 35px;
     }
 }
