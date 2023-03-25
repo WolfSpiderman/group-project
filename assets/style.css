@@ -43,6 +43,11 @@ header {
     radial-gradient(circle at 50% 50%, #FDFEB4 100%, #FDFEB4 100%)
     ;;
     z-index: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    flex-direction: row;
 }
 
 #startBtn {
@@ -226,24 +231,34 @@ span {
         height: 200px;
         width: 200px;
     }
+
+    #btn1, #btn2, #btn3, #btn4 {
+        height: 50px;
+    }
+    
+    #question-cardA {
+        height: 640px;
+    }
 }
+
+
 
 @media (max-width: 404px) {
     
     #title {
-        font-size: 40px;
+        font-size: 39px;
     }
     
     .middle {
-        top: -7%;
-        right: -1%;
-        letter-spacing: 1.5px;
+        top: -11%;
+        right: -2%;
+        letter-spacing: 1.1px;
         font-size: 37px;
     }
     
     .top {
         top: 3%;
-        right: 1%;
+        right: -1%;
         letter-spacing: 2px;
         font-size: 35px;
     }
