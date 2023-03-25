@@ -51,13 +51,6 @@ var hsName = document.querySelector("#hsName");
 var hsScore = document.querySelector("#hsScore");
 
 //list of questions to use in questionH2
-
-    //joshua working on these and api calls
-
-// 1. Abradolf Lincler 2. Arthricia 3. Birdperson 4. Crocubot 5. Ice-T 6. King Flippy Nips 7. Krombopulos Micheal 8. Mr Poopybutthole
-// 9. Regular Legs 10. Revolio Clockberg Jr. 11. Scary Terry 12. Shrimply Pibbles 13. Zeep Xanflorp 14. Fascist Teddy Bear Rick 
-// 15. Vermigurber 16. Balthromaw 17. Glockenspiel Morty 18. Mr. Always-Wants-To-Be-Hunted 19. Planetina 20. Sticky
-
 var questionList = [
     {
         question: "Abradolf Lincler sacrificed himself getting what for Rick?",
@@ -164,21 +157,6 @@ var questionList = [
 
 //game functionality
 
-//Acceptance Criteria: 
-
-    //    GIVEN I'm taking the ultimate Rick and Morty quiz
-    //    WHEN I load the webpage
-    //    THEN the game's welcome/cover page appears
-    //    WHEN I press start
-    //    THEN the game page appears with the first question 
-    //    WHEN one question is answered
-    //    THEN another question appears 
-    //    WHEN a player gets a question wrong or right
-    //    THEN the scores are incremented and decremented
-    //    WHEN the game is over
-    //    THEN the scoreboard page appears
-       // WHEN on scoreboard page
-       // THEN player can view their score
 
 //to hide all cards
 function hideCards() {
@@ -188,19 +166,11 @@ function hideCards() {
     highscoreCard.setAttribute("hidden", true);
     nameCard.setAttribute("hidden", true);
 }
-  
-  //function below can be used for META MVP
-  //for linking data from MEME API 
-  //to display joke to hassle users for wrong answers
-  //no corresponding div in index file atm
 
-  
-    // to hide result div
-    //  use for insult api
-    function hideResultText() {
-      results.style.display = "none";
-      nextBtn.setAttribute("class", "hidden");
-    }
+function hideResultText() {
+    results.style.display = "none";
+    nextBtn.setAttribute("class", "hidden");
+}
 
   
 var currentQuestion = 0;
@@ -287,6 +257,11 @@ function checkAnswer(eventObject) {
         e.removeAttribute("class", "hidden");
       });
       points += currentPoints;
+    } else if (window.matchMedia("(max-width: 768px)").matches) {
+        resultText.textContent = "Incorrect!";
+        [].forEach.call(charCards.querySelectorAll(".hidden"),function(e){
+            e.removeAttribute("class", "hidden");
+          });
     } else {
         fetch(insultURL)
     .then(function (response) {
