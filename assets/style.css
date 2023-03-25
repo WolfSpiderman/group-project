@@ -150,6 +150,7 @@ span {
 
 .question {
     background-color: #1B863C;
+    border: 3px solid #E5E051;
     width: fit-content;
     font-size: 25px;
   }
@@ -239,6 +240,14 @@ span {
     #question-cardA {
         height: 640px;
     }
+
+    #score-card  {
+        width: 90vw;
+    }
+
+    #name-card {
+        width: 70vw;
+    }
 }
 
 
@@ -246,20 +255,20 @@ span {
 @media (max-width: 404px) {
     
     #title {
-        font-size: 39px;
+        font-size: 33px;
     }
     
     .middle {
-        top: -11%;
-        right: -2%;
-        letter-spacing: 1.1px;
-        font-size: 37px;
+        top: -10%;
+        right: -1%;
+        letter-spacing: 1px;
+        font-size: 31px;
     }
     
     .top {
-        top: 3%;
-        right: -1%;
-        letter-spacing: 2px;
-        font-size: 35px;
+        top: 0%;
+        right: 1%;
+        letter-spacing: 1.2px;
+        font-size: 30px;
     }
 }
