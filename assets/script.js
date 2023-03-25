@@ -281,7 +281,7 @@ function checkAnswer(eventObject) {
     timeTaken = Math.floor((endTime - startTime) / 10);
     currentPoints = (1000 - timeTaken);
 
-    if (questionList[currentQuestion].answer === optionButton.textContent) {
+    if (questionList[currentQuestion].answer == optionButton.textContent) {
       resultText.textContent = "Correct!";
       [].forEach.call(charCards.querySelectorAll(".hidden"),function(e){
         e.removeAttribute("class", "hidden");
