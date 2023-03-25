@@ -272,11 +272,6 @@ function displayQuestion() {
   
 document.addEventListener("click", checkAnswer);
   
-  //Compare text content of button pressed with that of the current question 
-function optionRight(optionButton) {
-    return optionButton.textContent === questionList[currentQuestion].answer;
-}
-  
 function checkAnswer(eventObject) {
     let optionButton = eventObject.target;
     if (!optionButton.matches(".answerBtn")) return; 
@@ -286,7 +281,7 @@ function checkAnswer(eventObject) {
     timeTaken = Math.floor((endTime - startTime) / 10);
     currentPoints = (1000 - timeTaken);
 
-    if (optionRight(optionButton)) {
+    if (questionList[currentQuestion].answer === optionButton.textContent) {
       resultText.textContent = "Correct!";
       [].forEach.call(charCards.querySelectorAll(".hidden"),function(e){
         e.removeAttribute("class", "hidden");
