@@ -10,7 +10,7 @@ li {
 }
 
 header {
-    height: 100px;
+    height: 150px;
     background: radial-gradient(circle at 77% 80%, #FDFEB4 2.5%, transparent 2.5%),
     radial-gradient(circle at 75% 83%, #FDFEB4 2%, transparent 2%),
     radial-gradient(circle at 79% 83%, #FDFEB4 1%, transparent 1%),
@@ -46,7 +46,7 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     flex-direction: row;
 }
 
@@ -90,7 +90,7 @@ header {
     color: black;
 }
 
-#title {
+#title, #title2 {
     font-size: 48px;
     z-index: 1;
     color: black;
@@ -104,20 +104,20 @@ h1 span {
 
 .middle {
     position: absolute;
-    top: -4%;
-    right: -2%;
-    letter-spacing: 2.65px;
-    font-size: 42px;
+    top: -8%;
+    right: -1%;
+    letter-spacing: 1.8px;
+    font-size: 44px;
     color: #FFF765;
     z-index: 2;
 }
 
 .top {
     position: absolute;
-    top: 1%;
+    top: 2%;
     right: 1%;
-    letter-spacing: 3px;
-    font-size: 40px;
+    letter-spacing: 2px;
+    font-size: 43px;
     color: #08BAE3;
     z-index: 3;
 }
@@ -247,28 +247,5 @@ span {
 
     #name-card {
         width: 70vw;
-    }
-}
-
-
-
-@media (max-width: 404px) {
-    
-    #title {
-        font-size: 33px;
-    }
-    
-    .middle {
-        top: -10%;
-        right: -1%;
-        letter-spacing: 1px;
-        font-size: 31px;
-    }
-    
-    .top {
-        top: 0%;
-        right: 1%;
-        letter-spacing: 1.2px;
-        font-size: 30px;
     }
 }
