@@ -224,13 +224,13 @@ function displayQuestion() {
         if (currentQuestion === 3 || currentQuestion === 9) {cardName.setAttribute("class", "hidden")};
         cardStatus.textContent = charInfo[2];
         cardType.textContent = charInfo[3];
-        if (currentQuestion === 6 || currentQuestion === 12 || currentQuestion === 13|| currentQuestion === 16 || currentQuestion === 19) {cardType.setAttribute("class", "hidden")};
+        if (currentQuestion === 3 || currentQuestion === 5 || currentQuestion === 6 || currentQuestion === 12 || currentQuestion === 13|| currentQuestion === 16 || currentQuestion === 19) {cardType.setAttribute("class", "hidden")};
         cardSpecies.textContent = charInfo[4];
         if (currentQuestion === 6 || currentQuestion === 13 || currentQuestion === 16) {cardSpecies.setAttribute("class", "hidden")};
         cardOrigin.textContent = charInfo[5];
-        if (currentQuestion === 5 || currentQuestion === 12 || currentQuestion === 13 || currentQuestion === 16) {cardOrigin.setAttribute("class", "hidden")};
+        if (currentQuestion === 2 || currentQuestion === 5 || currentQuestion === 12 || currentQuestion === 13 || currentQuestion === 16 || currentQuestion === 19) {cardOrigin.setAttribute("class", "hidden")};
         cardLast.textContent = charInfo[6];
-        if (currentQuestion === 5 || currentQuestion === 12 || currentQuestion === 13 || currentQuestion === 16 || currentQuestion === 19) {cardLast.setAttribute("class", "hidden")};
+        if (currentQuestion === 2 || currentQuestion === 4 || currentQuestion === 5 || currentQuestion === 12 || currentQuestion === 13 || currentQuestion === 16) {cardLast.setAttribute("class", "hidden")};
 });
 
     for (let i = 1; i <= options.length; i++) {
