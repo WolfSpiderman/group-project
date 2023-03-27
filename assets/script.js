@@ -168,6 +168,7 @@ function hideCards() {
 }
 
 function hideResultText() {
+    resultText.textContent = " ";
     results.style.display = "none";
     nextBtn.setAttribute("class", "hidden");
 }
@@ -249,7 +250,10 @@ function checkAnswer(eventObject) {
 
     endTime = Date.now();
     timeTaken = Math.floor((endTime - startTime) / 10);
-    currentPoints = (1000 - timeTaken);
+    if (timeTaken > 2000) {
+        timeTaken = 2000;
+    }
+    currentPoints = ((2000 - timeTaken) + 1000);
 
     if (questionList[currentQuestion].answer == optionButton.textContent) {
       resultText.textContent = "Correct!";
@@ -258,7 +262,7 @@ function checkAnswer(eventObject) {
       });
       points += currentPoints;
     } else if (window.matchMedia("(max-width: 768px)").matches) {
-        resultText.textContent = "Incorrect!";
+        resultText.textContent = "Incorrect! Correct answer is " + questionList[currentQuestion].answer;
         [].forEach.call(charCards.querySelectorAll(".hidden"),function(e){
             e.removeAttribute("class", "hidden");
           });
@@ -268,7 +272,7 @@ function checkAnswer(eventObject) {
         return response.json();
     })
     .then(function (data) {
-        resultText.textContent = "Incorrect! " + data.insult + "!";
+        resultText.textContent = "Incorrect! " + data.insult + "! The correct answer is " + questionList[currentQuestion].answer;
     });
       [].forEach.call(charCards.querySelectorAll(".hidden"),function(e){
         e.removeAttribute("class", "hidden");
@@ -328,7 +332,7 @@ function getName() {
 function endQuiz() {
     hideCards();
     scoreCard.removeAttribute("hidden");
-    if (points > 13000) {
+    if (points > 23000) {
         endMsg.textContent = "Wow. I'd be lying if I said I was impressed, but you still did way better than I would've predicted. Nice job, I guess!";
     } else if (points > 7000) {
         endMsg.textContent = "Could've been worse, I guess. About the same level of competency I expect from Morty.";
@@ -336,7 +340,7 @@ function endQuiz() {
         endMsg.textContent = "Man, you're dumb. You might even be dumber than JERRY! What are you even doing here? Go learn some shit!"
     }
     score.textContent = points + "!";
-    scoreBtn.addEventListener("click", getName)
+    scoreBtn.addEventListener("click", getName);
 }
 
 init();
