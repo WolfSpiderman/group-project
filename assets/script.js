@@ -50,6 +50,14 @@ var scores = savedScores;
 var hsName = document.querySelector("#hsName");
 var hsScore = document.querySelector("#hsScore");
 
+var preInsult = fetch(insultURL)
+.then(function (response) {
+    return response.json();
+})
+.then(function (data) {
+    resultText.textContent = "Incorrect! " + data.insult;
+});
+
 //list of questions to use in questionH2
 var questionList = [
     {
@@ -262,7 +270,7 @@ function checkAnswer(eventObject) {
       });
       points += currentPoints;
     } else if (window.matchMedia("(max-width: 768px)").matches) {
-        resultText.textContent = "Incorrect! Correct answer is " + questionList[currentQuestion].answer;
+        resultText.textContent = "Incorrect! Correct answer is " + questionList[currentQuestion].answer + ".";
         [].forEach.call(charCards.querySelectorAll(".hidden"),function(e){
             e.removeAttribute("class", "hidden");
           });
@@ -272,7 +280,7 @@ function checkAnswer(eventObject) {
         return response.json();
     })
     .then(function (data) {
-        resultText.textContent = "Incorrect! " + data.insult + "! The correct answer is " + questionList[currentQuestion].answer;
+        resultText.textContent = "Incorrect! " + data.insult + "! The correct answer is " + questionList[currentQuestion].answer + ".";
     });
       [].forEach.call(charCards.querySelectorAll(".hidden"),function(e){
         e.removeAttribute("class", "hidden");
